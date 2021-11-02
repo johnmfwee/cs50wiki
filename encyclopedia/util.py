@@ -35,3 +35,14 @@ def get_entry(title):
         return f.read().decode("utf-8")
     except FileNotFoundError:
         return None
+
+
+def relatedTitles(title):
+    """
+    Finds any entries that are related to the title.
+    """
+    related = []
+    for entry in list_entries():
+        if title.lower() in entry.lower() or entry.lower() in title.lower():
+            related.append(entry)
+    return related
