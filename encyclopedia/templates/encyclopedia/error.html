@@ -1,0 +1,22 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+  <h1>Error: Entry "{{title}}" does not exit</h1>
+
+  <p>The requested entry "{{title}}" does not exist on Wiki.</p>
+  <p>Chek the <a href="{% url 'index' %}">home</a> page to see available articles</p>
+
+  {% if related_titles %}
+  <p>Related Entries:</p>
+    <ul>
+      {% for title in relatedTitles %}
+      <li><a href="{% url 'entry' title=title %}">{{title}}</a></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+{% endblock %}

@@ -5,12 +5,15 @@
 {% endblock %}
 
 {% block body %}
-    <h1>All Pages</h1>
+    <h1>Welcome to Wiki!</h1>
+
+    <p>Wiki is a wikipedia style website, made for a student project on creating web programs.</p>
+
+    <h2>All Pages:</h2>
 
     <ul>
         {% for entry in entries %}
-        <li>{{ entry }}</li>
-        <a href="{% url 'index' %}">Test</a>
+        <li><a href="{% url 'entry' title=entry %}">{{ entry }}</a></li>
         {% endfor %}
     </ul>
 

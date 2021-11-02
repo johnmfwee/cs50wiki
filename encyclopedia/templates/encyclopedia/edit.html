@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+  <h1>Editing Wiki Page "{{ title }}"</h1>
+  
+    <p>Use the form below to edit the Wiki page for "{{ title }}".</p>
+    <p>Please note that Qwikipedia uses <a href="https://docs.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax">Github Markdown</a> to style its pages, which is converted to HTML when entries are requested by a user.</p>
+    
+    <form action="{% url 'edit' title=title %}" method="post">
+      {% csrf_token %}
+      {{ editForm }}
+      <input class="btn btn-primary" type="submit" value="Submit">
+    </form>
+
+{% endblock %}
